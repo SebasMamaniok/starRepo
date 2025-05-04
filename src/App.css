@@ -1,0 +1,108 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000; 
+}
+
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+ 
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.centered-text {
+ 
+  font-size: 4em;
+  font-weight: bold;
+  z-index: 1; 
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  
+  color: transparent;
+
+ 
+  background-color: #fff; 
+ 
+  background-image: linear-gradient(#fff, #fff);
+
+
+  
+  background-clip: text;
+  -webkit-background-clip: text; 
+ 
+  mask-image: radial-gradient(circle, white, transparent);
+  -webkit-mask-image: radial-gradient(circle, white, transparent); 
+  mask-position: 0% 0%;
+  -webkit-mask-position: 0% 0%;
+   background-position: 0% 0%;
+
+
+  mask-size: 0%;
+  -webkit-mask-size: 0%;
+
+  
+  transition: mask-size 0.3s ease-in-out, mask-position 0.1s linear;
+  transition: -webkit-mask-size 0.3s ease-in-out, -webkit-mask-position 0.1s linear; /* Compatibilidad */
+  
+}
+
+
+.particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+
+  position: absolute;
+  width: 16px;       
+  height: 16px;      
+
+
+  pointer-events: none;
+
+
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Para compatibilidad con navegadores Webkit */
+ 
+
+
+  animation: moveAndFade 1.5s ease-out forwards;
+}
+
+@keyframes moveAndFade {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--deltaX), var(--deltaY)) scale(0.6);
+    opacity: 0;
+  }
+}
